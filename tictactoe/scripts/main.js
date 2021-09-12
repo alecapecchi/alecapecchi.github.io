@@ -55,7 +55,7 @@ async function mossa(id,casella){
         return;
     }
     //if the AI hasn't played yet (basic locking, not really needed has the AI is really fast)
-    if (mode!=="vsPlayer" && currentPlayer.name!=="Human"){
+    if (mode!=="vsPlayer" && currentPlayer.name!==player1.name){
         swal("Oops, something went wrong :(","It's not your turn!","error")
         return;
     }
@@ -81,8 +81,7 @@ function sleep(ms) {
 //change game mode
 function changeMode(newmode, newmodeID){
     //make all modes "unselected"
-    $("#easy, #medium,#impossible,#vsPlayer").removeClass("selectedMode")
-    $("#easy, #medium,#impossible,#vsPlayer").addClass("unselectedMode")
+    $("#easy, #medium,#impossible,#vsPlayer").removeClass("selectedMode").addClass("unselectedMode")
     //make new one selected
     $(newmodeID).addClass("selectedMode")
     //clean the board
@@ -146,14 +145,3 @@ async function endMatch(status){
     currentPlayer=player1
 }
 
-
-function setupStrikethrough() {
-    var defaultWidth = 285,
-        diagonalWidth = 380; //these manipulate strikethrough parent, not the inner div
-
-            return {
-                transform: "none",
-                top: 97,
-                left: 58,
-                width: defaultWidth
-            }}
